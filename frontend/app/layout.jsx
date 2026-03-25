@@ -41,6 +41,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 // ── API origin for DNS prefetch ───────────────────────────────────────────────
 const API_ORIGIN = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+import ServiceWorkerRegistrar from '../components/ServiceWorkerRegistrar';
 
 export const metadata = {
   title: 'StellarTrustEscrow — Decentralized Milestone Escrow',
@@ -86,6 +87,7 @@ export default function RootLayout({ children }) {
 
         {/* Core Web Vitals monitoring — renders nothing to DOM */}
         <PerformanceMonitor />
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );
