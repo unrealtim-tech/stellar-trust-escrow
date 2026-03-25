@@ -20,27 +20,7 @@ import './globals.css';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import PerformanceMonitor from '../components/ui/PerformanceMonitor';
-
-// ── Optimised Font Loading ────────────────────────────────────────────────────
-// next/font self-hosts the font files — zero layout shift, no external requests.
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  preload: true,
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
-  preload: false, // mono font is secondary — defer loading
-});
-
-// ── API origin for DNS prefetch ───────────────────────────────────────────────
-const API_ORIGIN = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+import { ThemeProvider } from '../contexts/ThemeContext';
 import ServiceWorkerRegistrar from '../components/ServiceWorkerRegistrar';
 
 export const metadata = {
